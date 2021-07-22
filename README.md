@@ -46,3 +46,4 @@ Note that thee are other ports that are already in use: synbiohub:7777, virtuoso
  - docker-compose.pluginSubmitExcelComposition.yml: 8094
  - docker-compose.pluginVisualComponentUse.yml : 8095
  - docker-compose.pluginDownloadShortbol.yml : 8096
+ - docker-compose.pluginSubmitShortbol.yml : 8097
