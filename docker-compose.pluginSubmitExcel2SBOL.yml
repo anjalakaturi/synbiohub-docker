@@ -4,6 +4,6 @@ services:
     pluginSubmitExcel2SBOL:
         image: synbiohub/plugin-submit-excel2sbol:snapshot
         ports:
-            - "8099:5000"
+            - "8098:5000"
         dns: 8.8.8.8
         restart: always
