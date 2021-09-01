@@ -1,7 +1,7 @@
 version: '3.2'
 
 services:
-    pluginSubmitSnapgene:
+    pluginSubmitExcel2SBOL:
         image: synbiohub/plugin-submit-excel2sbol:snapshot
         ports:
             - "8098:5000"
