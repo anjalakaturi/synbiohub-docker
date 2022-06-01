@@ -49,3 +49,4 @@ Note that thee are other ports that are already in use: synbiohub:7777, virtuoso
  - docker-compose.pluginSubmitShortbol.yml : 8097
  - docker-compose.pluginSubmitExcel2SBOL.yml : 8098
  - docker-compose.pluginDownloadIbiosim.yml : 8099
+ - docker-compose.pluginDownloadSBOL2Excel.yml : 8100
