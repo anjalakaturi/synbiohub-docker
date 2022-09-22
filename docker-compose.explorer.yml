@@ -7,7 +7,7 @@ services:
             - "13162:13162"
         depends_on:
             - elasticsearch
-            - synbiohub
+            - synbiohubFrontend
         dns: 8.8.8.8
         volumes:
             - type: volume

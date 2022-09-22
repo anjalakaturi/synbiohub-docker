@@ -17,12 +17,27 @@ services:
         ports:
             - "8890:8890"
         restart: always  
-    synbiohub:
-        image: synbiohub/synbiohub:1.6.1-standalone
+    synbiohubBackend:
+        image: synbiohub/sbh3backend:snapshot
         depends_on: 
             - virtuoso
         ports:
-            - "7777:7777"
+            - "6789:6789"
+        volumes:
+            - type: volume
+              source: sbh
+              target: /mnt
+            - type: volume
+              source: virtuoso-db
+              target: /virtuoso
+        dns: 8.8.8.8
+        restart: always
+    synbiohubFrontend:
+        image: synbiohub/sbh3frontend:snapshot
+        depends_on: 
+            - virtuoso
+        ports:
+            - "3333:3333"
         volumes:
             - type: volume
               source: sbh
