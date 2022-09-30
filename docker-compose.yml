@@ -17,10 +17,13 @@ services:
         ports:
             - "8890:8890"
         restart: always  
-    synbiohubBackend:
+        labels:
+            - "autoheal=true"
+    synbiohubbackend:
         image: synbiohub/sbh3backend:snapshot
         depends_on: 
-            - virtuoso
+            virtuoso:
+                condition: service_started
         ports:
             - "6789:6789"
         volumes:
@@ -38,6 +41,23 @@ services:
             - virtuoso
         ports:
             - "3333:3333"
+        volumes:
+            - type: volume
+              source: sbh
+              target: /mnt
+            - type: volume
+              source: virtuoso-db
+              target: /virtuoso
+        dns: 8.8.8.8
+        restart: always
+        environment: 
+            - backend=http://synbiohubbackend:6789
+    synbiohub:
+        image: synbiohub/synbiohub:1.6.1-standalone
+        depends_on: 
+            - virtuoso
+        ports:
+            - "7777:7777"
         volumes:
             - type: volume
               source: sbh
